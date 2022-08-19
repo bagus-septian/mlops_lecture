@@ -23,7 +23,9 @@ jobs:
         run: |
           pip3 install -r requirements.txt
           python train.py
+
  
           cat metrics.txt >> report.md
-          cml publish plot.png --md >> report.md
+          cml publish feature_importance.png --md >> report.md
+          cml publish confusion_matrix.png --md >> report.md
           cml send-comment report.md
